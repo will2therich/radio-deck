@@ -6,6 +6,8 @@
     $id = $getId();
     $isDisabled = $isDisabled();
     $statePath = $getStatePath();
+    $state = $getState();
+    dump($state);
 @endphp
 
 <x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
@@ -14,13 +16,15 @@
         @foreach ($getOptions() as $value => $label)
             @php
                 $shouldOptionBeDisabled = $isDisabled || $isOptionDisabled($value, $label);
-            @endphp
 
-            <label class="flex cursor-pointer gap-x-3">
+                $active = '';
+                if ($state == $value) $active = 'radio-active'
+            @endphp
+            <label class="flex cursor-pointer gap-x-3 {{$active}}">
                 <input @disabled($shouldOptionBeDisabled) id="{{ $id }}-{{ $value }}"
                     name="{{ $id }}" type="radio" value="{{ $value }}" wire:loading.attr="disabled"
                     {{ $applyStateBindingModifiers('wire:model') }}="{{ $statePath }}"
-                    {{ $getExtraInputAttributeBag()->class(['peer hidden']) }} />
+                    {{ $getExtraInputAttributeBag()->class(['peer hidden radio-deck-input']) }} />
 
                 @php
                     $iconExists = $hasIcons($value);
@@ -103,5 +107,15 @@
                 </div>
             </label>
         @endforeach
+
     </x-filament::grid>
+    <style>
+        .radio-active {
+            border: 2px solid gold;        /* Solid golden border */
+            box-shadow: 0 0 8px gold;      /* Glowing effect around the border */
+            position: relative;            /* Ensures the box-shadow is displayed correctly */
+            border-radius: 10px;
+        }
+
+    </style>
 </x-dynamic-component>
