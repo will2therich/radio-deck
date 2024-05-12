@@ -99,7 +99,7 @@
                         </span>
 
                         @if ($descriptionExists)
-                            <p {{ $getExtraDescriptionsAttributeBag()->merge(['class' =>'text-gray-500 dark:text-gray-400']) }}>
+                            <p {{ $getExtraDescriptionsAttributeBag()->merge(['class' =>'text-gray-500 dark:text-gray-400 text-align:left float:left']) }}>
                                 {{ $description }}
                             </p>
                         @endif
