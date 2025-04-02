@@ -7,7 +7,6 @@
     $isDisabled = $isDisabled();
     $statePath = $getStatePath();
     $state = $getState();
-    dump($state);
 @endphp
 
 <x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
