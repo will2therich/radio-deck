@@ -7,6 +7,7 @@ use Filament\Support\Concerns\HasAlignment;
 use Filament\Support\Concerns\HasColor;
 use Filament\Support\Concerns\HasIcon;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Htmlable;
 use JaOcero\RadioDeck\Contracts\HasDescriptions;
 use JaOcero\RadioDeck\Contracts\HasIcons;
 use JaOcero\RadioDeck\Intermediary\IntermediaryRadio;
@@ -31,11 +32,32 @@ class RadioDeck extends IntermediaryRadio
     use HasIconSizes;
     use HasPadding;
 
-    protected array|Arrayable|string|Closure|null $icons = null;
+    protected array|Arrayable|Closure|string|null $icons = null;
 
-    protected array|Arrayable|string|Closure $descriptions = [];
+    protected array|Arrayable|Closure|string $descriptions = [];
+
+    protected bool|Closure $isMultiple = false;
 
     protected string $view = 'radio-deck::forms.components.radio-deck';
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->default(fn (RadioDeck $component): mixed => $component->isMultiple() ? [] : null);
+
+        $this->afterStateHydrated(static function (RadioDeck $component, $state): void {
+            if (! $component->isMultiple()) {
+                return;
+            }
+
+            if (is_array($state)) {
+                return;
+            }
+
+            $component->state([]);
+        });
+    }
 
     public function icons(array|Arrayable|string|Closure|null $icons): static
     {
@@ -47,6 +69,13 @@ class RadioDeck extends IntermediaryRadio
     public function descriptions(array|Arrayable|string|Closure $descriptions): static
     {
         $this->descriptions = $descriptions;
+
+        return $this;
+    }
+
+    public function multiple(bool|Closure $condition = true): static
+    {
+        $this->isMultiple = $condition;
 
         return $this;
     }
@@ -130,5 +159,10 @@ class RadioDeck extends IntermediaryRadio
         }
 
         return $descriptions;
+    }
+
+    public function isMultiple(): bool
+    {
+        return (bool) $this->evaluate($this->isMultiple);
     }
 }

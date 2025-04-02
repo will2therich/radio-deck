@@ -2,6 +2,71 @@
 
 All notable changes to `radio-deck` will be documented in this file.
 
+## v1.2.10 - 2025-02-27
+
+### What's Changed
+
+* add support for laravel 12 by @atmonshi in https://github.com/199ocero/radio-deck/pull/29
+
+**Full Changelog**: https://github.com/199ocero/radio-deck/compare/v1.2.9...v1.2.10
+
+## v1.2.9 - 2024-12-07
+
+### What's Changed
+
+* Import `Closure` by @austincarpenter in https://github.com/199ocero/radio-deck/pull/26
+
+### New Contributors
+
+* @austincarpenter made their first contribution in https://github.com/199ocero/radio-deck/pull/26
+
+**Full Changelog**: https://github.com/199ocero/radio-deck/compare/v1.2.8...v1.2.9
+
+## v1.2.8 - 2024-06-25
+
+### What's Changed
+
+* Fix state when multiple is enabled by @stvtk in https://github.com/199ocero/radio-deck/pull/21
+
+### New Contributors
+
+* @stvtk made their first contribution in https://github.com/199ocero/radio-deck/pull/21
+
+**Full Changelog**: https://github.com/199ocero/radio-deck/compare/v1.2.7...v1.2.8
+
+## v1.2.7 - 2024-05-30
+
+### What's Changed
+
+* Adds checkbox multiple support by @dmason30 in https://github.com/199ocero/radio-deck/pull/18
+* update read me by @199ocero in https://github.com/199ocero/radio-deck/pull/19
+
+### New Contributors
+
+* @dmason30 made their first contribution in https://github.com/199ocero/radio-deck/pull/18
+
+**Full Changelog**: https://github.com/199ocero/radio-deck/compare/v1.2.6...v1.2.7
+
+## v1.2.6 - 2024-05-27
+
+### What's Changed
+
+* Correct type hint by @juliangums in https://github.com/199ocero/radio-deck/pull/17
+
+**Full Changelog**: https://github.com/199ocero/radio-deck/compare/v1.2.5...v1.2.6
+
+## v1.2.5 - 2024-05-27
+
+### What's Changed
+
+* Remove broken facade by @juliangums in https://github.com/199ocero/radio-deck/pull/16
+
+### New Contributors
+
+* @juliangums made their first contribution in https://github.com/199ocero/radio-deck/pull/16
+
+**Full Changelog**: https://github.com/199ocero/radio-deck/compare/v1.2.4...v1.2.5
+
 ## v1.2.4 - 2024-03-15
 
 ### What's Changed

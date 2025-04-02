@@ -2,6 +2,7 @@
 
 namespace JaOcero\RadioDeck\Traits;
 
+use Closure;
 use Illuminate\View\ComponentAttributeBag;
 
 trait HasExtraCardsAttributes
@@ -30,7 +31,7 @@ trait HasExtraCardsAttributes
      */
     public function getExtraCardsAttributes(): array
     {
-        $temporaryAttributeBag = new ComponentAttributeBag();
+        $temporaryAttributeBag = new ComponentAttributeBag;
 
         foreach ($this->extraCardsAttributes as $extraCardsAttributes) {
             $temporaryAttributeBag = $temporaryAttributeBag->merge($this->evaluate($extraCardsAttributes));
